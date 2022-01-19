@@ -7,7 +7,7 @@ class Schedule < ApplicationRecord
 
   def schedule_time_validation
     if Schedule.where('? >= begin_time AND ? < end_time AND room_id = ?', begin_time, begin_time, room_id).present? ||
-       Schedule.where('? > begin_time AND ? <= end_time room_id = ?', end_time, end_time, room_id).present?
+       Schedule.where('? > begin_time AND ? <= end_time AND room_id = ?', end_time, end_time, room_id).present?
       errors.add(:schedule_time, 'has been already taken')
     end
   end
