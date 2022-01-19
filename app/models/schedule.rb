@@ -6,7 +6,7 @@ class Schedule < ApplicationRecord
   private
 
   def schedule_time_validation
-    if schedule_time_already_taken? && available_schedule_time_window?
+    if schedule_time_already_taken? || !available_schedule_time_window?
       errors.add(:schedule_time, 'is unavailable')
     end
   end
@@ -19,7 +19,7 @@ class Schedule < ApplicationRecord
   def available_schedule_time_window?
     return false unless begin_time.on_weekday? && end_time.on_weekday?
 
-    begin_time >= begin_time.beginning_of_day + 6.hours &&
-      end_time <= end_time.beginning_of_day + 15.hours
+    begin_time >= begin_time.beginning_of_day + 12.hours &&
+      end_time <= end_time.beginning_of_day + 21.hours
   end
 end
