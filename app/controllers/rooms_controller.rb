@@ -12,10 +12,6 @@ class RoomsController < ApplicationController
       render json: { message: 'Could not create new schedule' }, status: 400
     end
 
-    def edit_schedule; end
-
-    def cancel_schedule; end
-
     private
     
     def find_room
