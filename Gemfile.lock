@@ -84,9 +84,9 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.15.0)
-    msgpack (1.4.2)
+    msgpack (1.4.3)
     nio4r (2.5.8)
-    nokogiri (1.13.1-arm64-darwin)
+    nokogiri (1.13.1-aarch64-linux)
       racc (~> 1.4)
     pg (1.2.3)
     puma (5.5.2)
@@ -142,7 +142,7 @@ GEM
     zeitwerk (2.5.3)
 
 PLATFORMS
-  arm64-darwin-21
+  aarch64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
