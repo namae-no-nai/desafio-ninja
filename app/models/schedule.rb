@@ -1,19 +1,23 @@
+# frozen_string_literal: true
+
 class Schedule < ApplicationRecord
   belongs_to :room
-  validates :begin_time, :end_time, presence:true
+  validates :begin_time, :end_time, presence: true
   validate :schedule_time_validation
 
   private
 
   def schedule_time_validation
-    if schedule_time_already_taken? || !available_schedule_time_window?
-      errors.add(:schedule_time, 'is unavailable')
-    end
+    return unless schedule_time_already_taken? && !available_schedule_time_window?
+
+    errors.add(:schedule_time, 'is unavailable')
   end
 
   def schedule_time_already_taken?
-    Schedule.where('? >= begin_time AND ? < end_time AND room_id = ?', begin_time, begin_time, room_id).present? ||
-      Schedule.where('? > begin_time AND ? <= end_time AND room_id = ?', end_time, end_time, room_id).present?
+    Schedule.where('? >= begin_time AND ? < end_time AND room_id = ?',
+                   begin_time, begin_time, room_id).present? ||
+      Schedule.where('? > begin_time AND ? <= end_time AND room_id = ?',
+                     end_time, end_time, room_id).present?
   end
 
   def available_schedule_time_window?
