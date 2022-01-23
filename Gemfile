@@ -17,7 +17,10 @@ group :development, :test do
   gem 'rubocop', require: false
 end
 
-gem 'simplecov', require: false, group: :test
+group :test do
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov', require: false
+end
 
 group :development do
   gem 'listen', '~> 3.3'
