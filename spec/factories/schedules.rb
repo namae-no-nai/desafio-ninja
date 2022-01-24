@@ -2,11 +2,12 @@
 
 FactoryBot.define do
   factory :schedule do
-    begin_time { begining_of_week }
-    end_time { begining_of_week }
+    begin_time { base_time }
+    end_time { base_time + 1.hour }
+    room { room.id }
   end
 end
 
-def begining_of_week
+def base_time
   Time.new(2022, 0o1, 0o3).utc
 end
