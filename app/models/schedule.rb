@@ -5,6 +5,14 @@ class Schedule < ApplicationRecord
   validates :begin_time, :end_time, presence: true
   validate :schedule_time_validation
 
+  def as_hash
+    {
+      id: id,
+      begin_time: begin_time.strftime('%F %T'),
+      end_time: end_time.strftime('%F %T')
+    }
+  end
+
   private
 
   def schedule_time_validation

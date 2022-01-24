@@ -28,6 +28,8 @@ class SchedulesController < ApplicationController
   end
 
   def find_schedule
-    @schedule = Schedule.find_by_id(params[:id])
+    @schedule = Schedule.find(params[:id])
+  rescue StandardError
+    render json: { error: 'Could not find schedule' }, status: 404
   end
 end
