@@ -7,7 +7,7 @@ class Room < ApplicationRecord
   def as_hash
     attributes.merge(
       {
-        schedules: schedules
+        schedules: schedules.map(&:as_hash)
       }
     )
   end

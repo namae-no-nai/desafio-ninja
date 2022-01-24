@@ -3,6 +3,8 @@ AllCops:
 
 Metrics/BlockLength:
   Max: 50
+  Exclude:
+    - 'spec/requests/schedules_controller_spec.rb'
 
 Metrics/CyclomaticComplexity:
   Max: 9
