@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :room do
-    sequence(:name) { |n| "Room #{n}" }
+    id { 1 }
+    name { 'test' }
   end
 end

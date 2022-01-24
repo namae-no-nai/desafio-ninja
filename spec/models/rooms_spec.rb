@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Room, type: :model do
-  it { should validate_presence_of(:name) }
+  it { expect validate_presence_of(:name) }
 
-  it { should validate_uniqueness_of(:name) }
+  it { expect validate_uniqueness_of(:name) }
 
-  it { should have_many(:schedules) }
+  it { expect have_many(:schedules) }
 end
